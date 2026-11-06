@@ -8,19 +8,22 @@ pipeline {
         }
         stage('Install Dependencies') {
             steps {
-                sh 'npm install'
+                bat 'npm install'
             }
         }
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t student-management-app:latest .'
+                bat 'docker build -t student-management-app:latest .'
             }
         }
         stage('Run Container') {
             steps {
-                sh 'docker stop student-app || true'
-                sh 'docker rm student-app || true'
-                sh 'docker run -d -p 3000:3000 --name student-app student-management-app:latest'
+                // Ignore errors if the container doesn't exist yet
+                catchError(buildResult: 'SUCCESS', stageResult: 'SUCCESS') {
+                    bat 'docker stop student-app'
+                    bat 'docker rm student-app'
+                }
+                bat 'docker run -d -p 3000:3000 --name student-app student-management-app:latest'
             }
         }
     }
