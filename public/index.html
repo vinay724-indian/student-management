@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Attendance & Performance System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Student Attendance & Performance Management</h2>
+
+        <!-- TC01: Faculty Login -->
+        <div id="login-section" class="card">
+            <h3>Faculty Login (TC01)</h3>
+            <input type="text" id="username" placeholder="Username (faculty)" value="faculty">
+            <input type="password" id="password" placeholder="Password (password123)" value="password123">
+            <button onclick="login()">Login</button>
+            <p id="login-msg"></p>
+        </div>
+
+        <!-- Dashboard (Hidden until login) -->
+        <div id="dashboard-section" class="card" style="display:none;">
+            <h3>Dashboard</h3>
+            
+            <!-- TC02: Add Student -->
+            <div class="section">
+                <h4>Add Student Details (TC02)</h4>
+                <input type="text" id="rollNo" placeholder="Roll No (e.g., 6601)">
+                <input type="text" id="studentName" placeholder="Student Name">
+                <input type="text" id="branch" placeholder="Branch (AI&ML)">
+                <button onclick="addStudent()">Add Student</button>
+            </div>
+
+            <!-- TC03 & TC04: Mark/Update Attendance -->
+            <div class="section">
+                <h4>Mark / Update Attendance (TC03, TC04)</h4>
+                <input type="text" id="attRollNo" placeholder="Roll No">
+                <input type="date" id="attDate">
+                <select id="attStatus">
+                    <option value="Present">Present</option>
+                    <option value="Absent">Absent</option>
+                </select>
+                <button onclick="markAttendance()">Submit Attendance</button>
+            </div>
+
+            <!-- TC05: Calculate Attendance Percentage -->
+            <div class="section">
+                <h4>View Attendance Percentage (TC05)</h4>
+                <input type="text" id="percRollNo" placeholder="Roll No">
+                <button onclick="getPercentage()">Check Percentage</button>
+                <p id="perc-result"></p>
+            </div>
+
+            <!-- TC06: Enter Internal Marks -->
+            <div class="section">
+                <h4>Enter Internal Marks (TC06)</h4>
+                <input type="text" id="marksRollNo" placeholder="Roll No">
+                <input type="text" id="subject" placeholder="Subject (e.g., AI)">
+                <input type="number" id="marksVal" placeholder="Marks (0-100)">
+                <button onclick="saveMarks()">Save Marks</button>
+            </div>
+
+            <!-- TC07: Generate Performance Report -->
+            <div class="section">
+                <h4>Generate Performance Reports (TC07)</h4>
+                <input type="text" id="reportRollNo" placeholder="Roll No">
+                <button onclick="generateReport()">Generate Report</button>
+                <pre id="report-output"></pre>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "students": [
+    {
+      "rollNo": "6601",
+      "name": "vinay",
+      "branch": "aiml"
+    }
+  ],
+  "attendance": {
+    "6601": [
+      {
+        "date": "2005-07-24",
+        "status": "Present"
+      }
+    ]
+  },
+  "marks": {
+    "6601": {
+      "ai": "90"
+    }
+  }
+}
